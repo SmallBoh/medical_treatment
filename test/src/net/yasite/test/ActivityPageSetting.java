@@ -1,7 +1,7 @@
 package net.yasite.test;
 
 public interface ActivityPageSetting {
-	//mkojccasa	
+	//mkoj
 	public void setupView();
 	public void setContent();
 	public void setModel();
