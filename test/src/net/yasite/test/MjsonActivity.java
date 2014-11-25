@@ -1,6 +1,10 @@
 package net.yasite.test;
 
-import net.yasite.entity.MJsonClassString;
+import java.util.ArrayList;
+import java.util.List;
+
+import net.yasite.entity.MJsonDeparments;
+import net.yasite.entity.MJsonListClassEntity;
 import net.yasite.model.MJsonModel;
 import net.yasite.net.HandlerHelp;
 import android.content.Context;
@@ -10,7 +14,9 @@ import android.widget.TextView;
 public class MjsonActivity extends BaseNewActivity{
 	private TextView tv;
 	private MJsonModel model;
-	private MJsonClassString cs;
+	//private MJsonClassString cs;
+	private List<MJsonListClassEntity> listClass;
+	private List<MJsonDeparments> deparments;
 	@Override
 	public void setupView() {
 		// TODO Auto-generated method stub
@@ -40,24 +46,28 @@ public class MjsonActivity extends BaseNewActivity{
 			super(context);
 			// TODO Auto-generated constructor stub
 			model = new MJsonModel(context);
-			cs = new MJsonClassString();
+		//	cs = new MJsonClassString();
+			//listClass = new ArrayList<MJsonListClassEntity>();
+			deparments = new ArrayList<MJsonDeparments>();
 		}
 
 		@Override
 		public void updateUI() {
 			// TODO Auto-generated method stub
-			if(cs != null){
-				
-				tv.setText(cs.toString());
+			if(deparments != null){
+
+				tv.setText(deparments.toString());
 			}else{
-			System.out.println("cs "+cs.toString());
+				System.out.println("deparments "+deparments.toString());
 			}
 		}
 
 		@Override
 		public void doTask(Message msg) throws Exception {
 			// TODO Auto-generated method stub
-			cs = model.RequestClass(3);
+			//cs = model.RequestClass(3);
+			//listClass = model.RequestClassList();
+			deparments = model.RequestDeparMents(24);
 		}
 
 		@Override
